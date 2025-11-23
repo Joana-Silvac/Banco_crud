@@ -5,6 +5,7 @@ public class Banco {
     private int senha;
     private int numero_conta;
     private Double saldo;
+    private boolean ativa=true;
 
     public Banco(String titular,int senha,int numero_conta){
         this.numero_conta=numero_conta;
@@ -14,33 +15,90 @@ public class Banco {
 
     }
 
-    public String tostring(){
-        return "Conta {"+ titular +",senha:"+senha+"número da conta:"+numero_conta+"}";
+    public String toString(){
+        return "Conta {"+ titular +", senha:"+senha+", número da conta:"+numero_conta+"}";
     }
 
     public int getNumero_conta() {
-        return numero_conta;
+        if (!ativa){
+            System.out.println("Conta inativa");
+            return 0;
+        }
+        else {
+            return numero_conta;
+
+        }
+
     }
 
     public String getTitular() {
-        return titular;
+        if (!ativa){
+            return "Conta inativa";
+        }
+        else {
+            return titular;
+        }
     }
 
     public int getSenha() {
-        return senha;
+        if (!ativa){
+            System.out.println("Conta inativa");
+            return 0;
+        }
+        else {
+            return senha;
+
+        }
+
     }
 
     public Double getSaldo() {
-        return saldo;
+        if (!ativa){
+            System.out.println("Conta inativa");
+            return 0.0;
+        }
+        else {
+            return saldo;
+
+        }
+
     }
 
     public String deposito(double valor){
-        saldo = saldo + valor;
-        return "Você depositou"+ valor +" reais.";
+        if (!ativa){
+            return "Conta inativa!";
+        }
+        else {
+            if (valor<0){
+                return  "Você não pode depositar números negativos";
+            }
+            saldo = saldo + valor;
+            return "Você depositou " + valor + " reais.";
+
+        }
+
+
     }
     public String sacar(double valor){
-        saldo = saldo - valor;
-        return "Retirando"+ valor + " reais";
+        if (!ativa){
+            return "Conta inativa!";
+        }
+        else{
+            if (valor>saldo){
+                return "você não pode sacar mais do que possui na conta";
+            }
+            saldo = saldo - valor;
+            return "Retirando" + valor + " reais";
+        }
+
+    }
+
+    public String deletar(){
+         if (!ativa){
+            return "Está conta já foi apagada";
+        }
+        ativa=false;
+        return "Conta apagada com sucesso!";
 
     }
 }
