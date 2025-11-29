@@ -1,6 +1,7 @@
 
 
 ------PROPOSTA----------
+
 Um sistema bancário simples desenvolvido em Java que permite gerenciar contas bancárias com operações básicas.
 
 ------FUNCIONAMENTO-----
