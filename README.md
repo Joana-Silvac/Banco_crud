@@ -2,7 +2,7 @@
 
 ------PROPOSTA----------
 
-Um sistema bancário simples desenvolvido em Java que permite gerenciar contas bancárias com operações básicas.
+Um sistema bancário simples desenvolvido por Joana Silva em Java que permite gerenciar contas bancárias com operações básicas.
 
 ------FUNCIONAMENTO-----
 
